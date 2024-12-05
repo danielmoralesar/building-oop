@@ -14,6 +14,30 @@ public class Building {
         this.apartments = apartments;
     }
 
+    public void showBuilding() {
+        System.out.println("Dirección: " + getAddress() + " Municipio: " + getTown() + " Apartamentos: ");
+        for (var apartment : apartments) {
+            apartment.showApartment();
+        }
+    }
+
+    public void showFirstFlat() {
+        for (var apartment : apartments) {
+            if (apartment.getFlat() == 1) {
+                apartment.showApartment();
+            }
+        }
+    }
+
+    public Apartment findApartment(String door, int flat) {
+        for (var apartment : apartments) {
+            if (apartment.getFlat() == flat && apartment.getDoor().equals(door)) {
+                return apartment;
+            }
+        }
+        return null;
+    }
+
     public String getAddress() {
         return address;
     }

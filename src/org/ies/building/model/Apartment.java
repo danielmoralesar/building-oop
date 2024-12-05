@@ -14,6 +14,13 @@ public class Apartment {
         this.owners = owners;
     }
 
+    public void showApartment() {
+        System.out.println("Piso: " + flat + " Puerta: " + door + " Propietarios: ");
+        for (var owner : owners) {
+            owner.showOwner();
+        }
+    }
+
     public int getFlat() {
         return flat;
     }
