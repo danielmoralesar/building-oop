@@ -21,14 +21,6 @@ public class Building {
         }
     }
 
-    public void showFirstFlat() {
-        for (var apartment : apartments) {
-            if (apartment.getFlat() == 1) {
-                apartment.showApartment();
-            }
-        }
-    }
-
     public Apartment findApartment(String door, int flat) {
         for (var apartment : apartments) {
             if (apartment.getFlat() == flat && apartment.getDoor().equals(door)) {
@@ -36,6 +28,43 @@ public class Building {
             }
         }
         return null;
+    }
+
+    public void showFlat(int flat) {
+        for (var apartment : apartments) {
+            if (apartment.getFlat() == flat) {
+                apartment.showApartment();
+            }
+        }
+    }
+
+    public Owner[] findOwners(String door, int flat) {
+        var apartment = findApartment(door, flat);
+        if (apartment != null) {
+            return apartment.getOwners();
+        } else {
+            return null;
+        }
+    }
+
+    public void showApartment(String door, int flat) {
+        var apartment = findApartment(door, flat);
+        if (apartment != null) {
+            apartment.showApartment();
+        } else {
+            System.out.println("No existe el apartamento");
+        }
+    }
+
+    public void showOwners(String door, int flat) {
+        if (findApartment(door, flat) != null) {
+            Owner[] owners = findOwners(door, flat);
+            for (var owner : owners) {
+                owner.showOwner();
+            }
+        } else {
+            System.out.println("No existe el apartamento");
+        }
     }
 
     public String getAddress() {

@@ -15,7 +15,7 @@ public class Apartment {
     }
 
     public void showApartment() {
-        System.out.println("Piso: " + flat + " Puerta: " + door + " Propietarios: ");
+        System.out.println("    Piso: " + flat + " Puerta: " + door + " Propietarios: ");
         for (var owner : owners) {
             owner.showOwner();
         }

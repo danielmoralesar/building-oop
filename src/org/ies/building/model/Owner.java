@@ -14,7 +14,7 @@ public class Owner {
     }
 
     public void showOwner() {
-        System.out.println("NIF: " + nif + " Nombre completo: " + name + " " + surname);
+        System.out.println("        NIF: " + nif + " Nombre completo: " + name + " " + surname);
     }
 
     public String getNif() {
