@@ -21,25 +21,40 @@ public class Building {
         }
     }
 
-    public Apartment findApartment(String door, int flat) {
+    public Apartment findApartment(String door, int floor) {
         for (var apartment : apartments) {
-            if (apartment.getFlat() == flat && apartment.getDoor().equals(door)) {
+            if (apartment.getFloor() == floor && apartment.getDoor().equals(door)) {
                 return apartment;
             }
         }
         return null;
     }
 
-    public void showFlat(int flat) {
+    public boolean checkFloor(int floor) {
+        boolean areThereApartments = false;
         for (var apartment : apartments) {
-            if (apartment.getFlat() == flat) {
-                apartment.showApartment();
+            if (apartment.getFloor() == floor) {
+                areThereApartments = true;
+                break;
             }
+        }
+        return areThereApartments;
+    }
+
+    public void showFloor(int floor) {
+        if (checkFloor(floor)) {
+            for (var apartment : apartments) {
+                if (apartment.getFloor() == floor) {
+                    apartment.showApartment();
+                }
+            }
+        } else {
+            System.out.println("No existe la planta, intentelo de nuevo");
         }
     }
 
-    public Owner[] findOwners(String door, int flat) {
-        var apartment = findApartment(door, flat);
+    public Owner[] findOwners(String door, int floor) {
+        var apartment = findApartment(door, floor);
         if (apartment != null) {
             return apartment.getOwners();
         } else {
@@ -47,8 +62,8 @@ public class Building {
         }
     }
 
-    public void showApartment(String door, int flat) {
-        var apartment = findApartment(door, flat);
+    public void showApartment(String door, int floor) {
+        var apartment = findApartment(door, floor);
         if (apartment != null) {
             apartment.showApartment();
         } else {
@@ -56,9 +71,9 @@ public class Building {
         }
     }
 
-    public void showOwners(String door, int flat) {
-        if (findApartment(door, flat) != null) {
-            Owner[] owners = findOwners(door, flat);
+    public void showOwners(String door, int floor) {
+        if (findApartment(door, floor) != null) {
+            Owner[] owners = findOwners(door, floor);
             for (var owner : owners) {
                 owner.showOwner();
             }

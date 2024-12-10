@@ -4,29 +4,29 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Apartment {
-    private int flat;
+    private int floor;
     private String door;
     private Owner[] owners;
 
-    public Apartment(int flat, String door, Owner[] owners) {
-        this.flat = flat;
+    public Apartment(int floor, String door, Owner[] owners) {
+        this.floor = floor;
         this.door = door;
         this.owners = owners;
     }
 
     public void showApartment() {
-        System.out.println("    Piso: " + flat + " Puerta: " + door + " Propietarios: ");
+        System.out.println("    Piso: " + floor + " Puerta: " + door + " Propietarios: ");
         for (var owner : owners) {
             owner.showOwner();
         }
     }
 
-    public int getFlat() {
-        return flat;
+    public int getFloor() {
+        return floor;
     }
 
-    public void setFlat(int flat) {
-        this.flat = flat;
+    public void setFloor(int floor) {
+        this.floor = floor;
     }
 
     public String getDoor() {
@@ -50,18 +50,18 @@ public class Apartment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Apartment apartment = (Apartment) o;
-        return flat == apartment.flat && Objects.equals(door, apartment.door) && Objects.deepEquals(owners, apartment.owners);
+        return floor == apartment.floor && Objects.equals(door, apartment.door) && Objects.deepEquals(owners, apartment.owners);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flat, door, Arrays.hashCode(owners));
+        return Objects.hash(floor, door, Arrays.hashCode(owners));
     }
 
     @Override
     public String toString() {
         return "Apartment{" +
-                "flat=" + flat +
+                "flat=" + floor +
                 ", door='" + door + '\'' +
                 ", owners=" + Arrays.toString(owners) +
                 '}';
