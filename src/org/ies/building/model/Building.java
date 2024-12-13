@@ -30,15 +30,14 @@ public class Building {
         return null;
     }
 
+    //This method is unnecessary, but it works
     public boolean checkFloor(int floor) {
-        boolean areThereApartments = false;
         for (var apartment : apartments) {
             if (apartment.getFloor() == floor) {
-                areThereApartments = true;
-                break;
+                return true;
             }
         }
-        return areThereApartments;
+        return false;
     }
 
     public void showFloor(int floor) {
