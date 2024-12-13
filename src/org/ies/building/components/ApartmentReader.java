@@ -22,15 +22,7 @@ public class ApartmentReader {
         System.out.println("¿Cuál es la puerta?");
         String door = scanner.nextLine();
 
-        int howManyOwners;
-        do {
-            System.out.println("¿Cúantos propietarios tiene el piso?");
-            howManyOwners = scanner.nextInt();
-            scanner.nextLine();
-            if (howManyOwners < 1) {
-                System.out.println("El piso debe tener al menos un propietario");
-            }
-        } while (howManyOwners < 1);
+        int howManyOwners = askOwners();
 
         Owner[] owners = new Owner[howManyOwners];
         for (int i = 0; i < howManyOwners; i++) {
@@ -42,5 +34,18 @@ public class ApartmentReader {
                 door,
                 owners
         );
+    }
+
+    private int askOwners() {
+        int owners;
+        do {
+            System.out.println("¿Cúantos propietarios tiene el piso?");
+            owners = scanner.nextInt();
+            scanner.nextLine();
+            if (owners < 1) {
+                System.out.println("El piso debe tener al menos un propietario");
+            }
+        } while (owners < 1);
+        return owners;
     }
 }

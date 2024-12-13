@@ -1,3 +1,5 @@
+package org.ies.building;
+
 import org.ies.building.components.ApartmentReader;
 import org.ies.building.components.BuildingApp;
 import org.ies.building.components.BuildingReader;

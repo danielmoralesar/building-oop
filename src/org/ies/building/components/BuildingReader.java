@@ -21,15 +21,7 @@ public class BuildingReader {
         System.out.println("Municipio: ");
         String town = scanner.nextLine();
 
-        int howManyApartments;
-        do {
-            System.out.println("¿Cúantos pisos hay en el edificio?");
-            howManyApartments = scanner.nextInt();
-            scanner.nextLine();
-            if (howManyApartments < 1) {
-                System.out.println("El edificio no puede tener menos de un apartamento");
-            }
-        } while (howManyApartments < 1);
+        int howManyApartments = askApartments();
 
         Apartment[] apartments = new Apartment[howManyApartments];
         for (int i = 0; i < howManyApartments; i++) {
@@ -41,5 +33,18 @@ public class BuildingReader {
                 town,
                 apartments
         );
+    }
+
+    private int askApartments() {
+        int size;
+        do {
+            System.out.println("¿Cúantos pisos hay en el edificio?");
+            size = scanner.nextInt();
+            scanner.nextLine();
+            if (size < 1) {
+                System.out.println("El edificio no puede tener menos de un apartamento");
+            }
+        } while (size < 1);
+        return size;
     }
 }
