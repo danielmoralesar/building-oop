@@ -18,7 +18,6 @@ public class BuildingApp {
         int option;
         do {
             option = askOption();
-
             if (option == 1) {
                 building.showBuilding();
             } else if (option == 2) {
@@ -35,23 +34,22 @@ public class BuildingApp {
             } else if (option == 5) {
                 System.out.println("¡Hasta luego!");
             }
-
         } while (option != 5);
     }
 
-    public int askFloor() {
+    private int askFloor() {
         System.out.println("Ingrese el número de una planta:");
         int floor = scanner.nextInt();
         scanner.nextLine();
         return floor;
     }
 
-    public String askDoor() {
+    private String askDoor() {
         System.out.println("Ingrese la letra/número de una puerta:");
         return scanner.nextLine();
     }
 
-    public int askOption() {
+    private int askOption() {
         int option;
         do {
             System.out.println("Elija una opción:");
